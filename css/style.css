@@ -182,20 +182,30 @@ body{
     gap: 20px;
     font-family: "标题", sans-serif;
 }
-.container span{
+.artists .container span{
     font-weight: 700;
     font-size: 22px
 }
 
-.artist-card img{
+.artist-card a{
     position:absolute;
-    bottom:40px;
+    bottom:45px;
     left:50%;
     transform:translateX(-50%);
     height:280px;
     width:auto;
     object-fit:contain;
     z-index:1;
+}
+
+.artist-card img{
+    display: block;
+    height: 280px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter:
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.22));
 }
 
 .artist-list{
@@ -240,6 +250,7 @@ body{
     border-radius:
     90px 90px 0 0;
     z-index:0;
+    transition: filter 0.3s ease;
 }
 
 .artist-card {
@@ -251,10 +262,116 @@ body{
 
 .artist-card h3{
     position:absolute;
-    bottom:10px;
+    bottom:0px;
     width:100%;
     margin:0;
     color:white;
-    font-size:18px;
+
+    font-family: "酒菜",sans-serif;
+    font-size:24px;
+    font-weight: 400;
+
     z-index:2;
+}
+
+.artist-card:hover .artist-bg{
+    filter: brightness(1.12);
+}
+
+.stages{
+    width: 1312px;
+    margin: 120px auto 0;
+}
+
+.stages .container{
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+
+    font-family:"标题", sans-serif;
+}
+
+.stages .container span{
+    font-weight:700;
+    font-size:22px;
+}
+
+.stage-layout{
+    display: grid;
+    grid-template-columns: 620px 1fr;
+    gap: 28px;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.stage-main img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.stage-side{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 14px 20px;
+}
+
+.stage-small img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.stage-info{
+    margin-top: 10px;
+}
+
+.stage-info h3{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.stage-info p{
+    margin-top: 4px;
+    color: #87a49f;
+    font-size: 12px;
+}
+
+.stage-main .stage-info h3{
+    font-size: 20px;
+}
+
+.stage-main .stage-info p{
+    font-size: 13px;
+}
+
+.artist-card::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:150px;
+
+    background:linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255,255,255,0.06) 45%,
+        rgba(255,255,255,0.12) 70%,
+        transparent 100%
+    );
+
+    z-index:0;
+}
+
+.artist-card a:hover img{
+    transform:scale(1.05);
 }
