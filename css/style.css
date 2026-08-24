@@ -375,3 +375,203 @@ body{
 .artist-card a:hover img{
     transform:scale(1.05);
 }
+
+.music{
+    width: 1312px;
+    margin: 120px auto 0;
+}
+
+.music .container{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    font-family: "标题", sans-serif;
+}
+
+.music .container span{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.music-layout{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 28px;
+    margin-top: 40px;
+    align-items: stretch;
+}
+
+.recent-music{
+    display: flex;
+    flex-direction: column;
+}
+
+.song-item{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.song-number{
+    width: 28px;
+    flex-shrink: 0;
+    color: #54cfb2;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.song-text{
+    min-width: 0;
+}
+
+.song-text h3{
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.song-text p{
+    margin-top: 4px;
+    color: #87a49f;
+    font-size: 13px;
+}
+
+.active-song .song-text h3{
+    color: #54cfb2;
+}
+
+.music-player{
+    padding: 28px 32px;
+    background: #10181b;
+    border-radius: 20px;
+    border: 1px solid rgba(84, 207, 178, 0.12);
+}
+
+.music-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.now-playing{
+    color: #54cfb2;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.music-top h3{
+    margin-top: 8px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: 400;
+    font-family: "再就业", sans-serif;
+}
+
+.music-top p{
+    margin-top: 5px;
+    color: #87a49f;
+    font-size: 13px;
+}
+
+.music-time{
+    color: #87a49f;
+    font-size: 13px;
+}
+
+.music-progress{
+    height: 4px;
+    margin-top: 28px;
+    background: #26302f;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.music-progress-bar{
+    width: 35%;
+    height: 100%;
+    background: #54cfb2;
+    border-radius: 10px;
+}
+
+.music-controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 26px;
+}
+
+.music-controls button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    color: #87a49f;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.25s ease,
+                transform 0.25s ease;
+}
+
+.music-controls button:hover{
+    color: #54cfb2;
+    transform: scale(1.08);
+}
+
+.play-btn{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #54cfb2 !important;
+    color: #050c0f !important;
+    font-size: 18px !important;
+}
+
+.play-btn:hover{
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(84, 207, 178, 0.35);
+}
+
+.artists,
+.stages,
+.music{
+    position:relative;
+}
+
+
+/* STAGES 和 MUSIC 顶部分隔线 */
+.stages::before,
+.music::before{
+    content:"";
+
+    position:absolute;
+
+    top:-60px;
+    left:0;
+
+    width:100%;
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(84,207,178,0.28),
+        transparent
+    );
+}
+
+.active-song{
+    background:
+        linear-gradient(
+            90deg,
+            rgba(84,207,178,0.08),
+            transparent
+        );
+
+    border-left:2px solid #54cfb2;
+}
+
