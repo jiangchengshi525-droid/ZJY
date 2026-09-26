@@ -1,0 +1,243 @@
+/* mobile.css
+   手机端覆盖样式
+   在 HTML 中通过 media="(max-width: 768px)" 引入
+*/
+
+body {
+    overflow-x: hidden;
+}
+
+.wrapper,
+.artists,
+.stages {
+    width: calc(100% - 32px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header */
+.site-header {
+    height: auto;
+}
+
+.site-header .wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 12px;
+}
+
+.logo {
+    width: 130px;
+    height: 39px;
+    margin: 0 auto;
+}
+
+.nav-list {
+    width: 100%;
+    margin-left: 0;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.nav-list::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-list a {
+    display: block;
+    flex-shrink: 0;
+    font-size: 13px;
+    line-height: 46px;
+}
+
+.nav-list .active::after {
+    bottom: 2px;
+}
+
+/* Hero */
+.hero {
+    width: calc(100% - 32px);
+    margin-top: 24px;
+    border-radius: 16px;
+}
+
+.hero-content {
+    bottom: 18px;
+    width: 90%;
+}
+
+.hero-content h2 {
+    font-size: 32px;
+    letter-spacing: 3px;
+}
+
+.hero-content p {
+    margin-top: 6px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/* Section 标题 */
+.artists,
+.stages {
+    margin-top: 72px;
+}
+
+.artists .container,
+.stages .container {
+    gap: 12px;
+}
+
+.artists .container span,
+.stages .container span {
+    font-size: 16px;
+}
+
+.artists .container h2,
+.stages .container h2 {
+    font-size: 24px;
+}
+
+/* 艺人区域：手机端 2列 × 3行 */
+.artist-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+    margin-top: 24px;
+}
+
+.artist-card {
+    height: 290px;
+}
+
+.artist-bg {
+    top: 26px;
+    width: 140px;
+    height: 178px;
+    border-radius: 70px 70px 0 0;
+}
+
+.artist-card a {
+    bottom: 42px;
+    height: 220px;
+    max-width: 100%;
+}
+
+.artist-card img {
+    height: 220px;
+    max-width: 100%;
+}
+
+.artist-card h3 {
+    font-size: 20px;
+}
+
+.artist-card::before {
+    height: 110px;
+}
+
+/* 舞台区域：主舞台在上，六个小舞台在下 */
+.stage-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 28px;
+    align-items: stretch;
+}
+
+.stage-main {
+    width: 100%;
+}
+
+.stage-main img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+}
+
+.stage-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+}
+
+.stage-small img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+
+.stage-info {
+    margin-top: 8px;
+}
+
+.stage-info h3 {
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.stage-info p {
+    margin-top: 3px;
+    font-size: 11px;
+}
+
+.stage-main .stage-info h3 {
+    font-size: 18px;
+}
+
+.stage-main .stage-info p {
+    font-size: 12px;
+}
+
+/* 更小的手机 */
+@media (max-width: 480px) {
+    .wrapper,
+    .artists,
+    .stages,
+    .hero {
+        width: calc(100% - 24px);
+    }
+
+    .nav-list {
+        gap: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .artist-list {
+        gap: 16px 8px;
+    }
+
+    .artist-card {
+        height: 270px;
+    }
+
+    .artist-bg {
+        width: 125px;
+        height: 162px;
+        border-radius: 63px 63px 0 0;
+    }
+
+    .artist-card a,
+    .artist-card img {
+        height: 205px;
+    }
+
+    .artist-card h3 {
+        font-size: 18px;
+    }
+
+    .stage-side {
+        gap: 16px 10px;
+    }
+
+    .stage-info h3 {
+        font-size: 13px;
+    }
+}

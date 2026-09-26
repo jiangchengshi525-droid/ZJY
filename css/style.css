@@ -1,0 +1,645 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    color: #54cfb2;
+}
+
+a {
+    color: #54cfb2;
+    text-decoration: none;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 1312px;
+}
+
+body{
+    background-color: #050c0f;
+}
+.site-header{
+    height: 80px;
+    background-color: rgba(5, 12, 15, 0.92);
+    border-bottom:1px solid  #54cfb2;
+}
+
+.site-header .wrapper{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+    width: 150px;
+    height: 45px;
+    flex-shrink: 0;
+    background-image: url("../image/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.logo h1 {
+    font-size: 0;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 45px;
+}
+
+.nav-list a{
+    color: #87a49f;
+    font-size: 15px;
+    line-height: 80px;
+    transition: color 0.25s;
+    position: relative;
+}
+
+.nav-list a:hover{
+    color: #54cfb2;
+}
+
+.nav-list .active{
+    color: #54cfb2;
+}
+
+.nav-list .active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -8px;
+
+    width: 24px;
+    height: 2px;
+
+    background-color: #54cfb2;
+
+    transform: translateX(-50%);
+
+    border-radius: 2px;
+
+    box-shadow: 0 0 8px rgba(84, 207, 178, 0.6);
+}
+
+.hero{
+    width: 950px;
+    margin: 40px auto 0;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 30px rgba(84, 207, 178, 0.22);
+}
+
+.hero-dots{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.hero-dot{
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(120, 133, 149, 0.35);
+
+    cursor: pointer;
+}
+
+.hero-dot.active{
+    width: 24px;
+
+    border-radius: 10px;
+
+    background: #54CFB2;
+}
+
+.hero-prev,
+.hero-next{
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+
+    font-size: 30px;
+    cursor: pointer;
+
+    flex: 1;
+    
+}
+
+.hero-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.hero-prev{
+    left: 20px;
+}
+
+.hero-next{
+    right: 20px;
+}
+
+.hero-image{
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.hero-image.fade{
+    opacity: 0;
+}
+
+.hero-content{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    text-align: center;
+    text-shadow: 0 2px 12px rgba(84, 207, 178, 0.22);
+    z-index: 1;
+}
+
+.hero-content h2{
+    margin: 0;
+    font-size: 50px;
+    letter-spacing: 6px;
+    font-family: "再就业", sans-serif;
+}
+
+.hero-content p{
+    margin: 10px 0 0;
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-family: "酒菜", sans-serif;
+}
+
+@font-face {
+    font-family: "再就业";
+    src: url("../fonts/字制区喜脉喜欢体.ttf");
+}
+@font-face {
+    font-family: "酒菜";
+    src: url("../fonts/白路彤彤手写体.ttf");
+}
+@font-face {
+    font-family: "标题";
+    src: url("../fonts/张穸洛浮生楷体.ttf");
+}
+
+.hero::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(5,12,15,0.75)
+    );
+}
+
+.artists{
+    width: 1312px;
+    margin: 120px auto 0;
+}
+
+.section-title{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.section-title span{
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+.section-title h2{
+    margin-top: 12px;
+    font-size: 36px;
+}
+.artists .container{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    font-family: "标题", sans-serif;
+}
+.artists .container span{
+    font-weight: 700;
+    font-size: 22px
+}
+
+.artist-card a{
+    position:absolute;
+    bottom:45px;
+    left:50%;
+    transform:translateX(-50%);
+    height:280px;
+    width:auto;
+    object-fit:contain;
+    z-index:1;
+}
+
+.artist-card img{
+    display: block;
+    height: 280px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter:
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.22));
+}
+
+.artist-list{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 20px;
+}
+.ccs .artist-bg{
+    background: #e30719;
+}
+.Allen .artist-bg{
+    background: #e94d96;
+}
+.KA .artist-bg{
+    background: #f3c62f;
+}
+.Bird .artist-bg{
+    background: #ffed00;
+}
+.Reno .artist-bg{
+    background: linear-gradient(
+        135deg,
+        #003892,
+        #ffffff
+    );
+}
+.LT .artist-bg{
+    background: linear-gradient(
+        135deg,
+        #00c73e,
+        #34ccff
+    );
+}
+
+.artist-bg {
+    position:absolute;
+    top:30px;
+    left:50%;
+    transform:translateX(-50%);
+    width:180px;
+    height:220px;
+    border-radius:
+    90px 90px 0 0;
+    z-index:0;
+    transition: filter 0.3s ease;
+}
+
+.artist-card {
+    position:relative;
+    height:360px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.artist-card h3{
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    margin:0;
+    color:white;
+
+    font-family: "酒菜",sans-serif;
+    font-size:24px;
+    font-weight: 400;
+
+    z-index:2;
+}
+
+.artist-card:hover .artist-bg{
+    filter: brightness(1.12);
+}
+
+.stages{
+    width: 1312px;
+    margin: 120px auto 0;
+}
+
+.stages .container{
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+
+    font-family:"标题", sans-serif;
+}
+
+.stages .container span{
+    font-weight:700;
+    font-size:22px;
+}
+
+.stage-layout{
+    display: grid;
+    grid-template-columns: 620px 1fr;
+    gap: 28px;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.stage-main img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.stage-side{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 14px 20px;
+}
+
+.stage-small img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.stage-info{
+    margin-top: 10px;
+}
+
+.stage-info h3{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.stage-info p{
+    margin-top: 4px;
+    color: #87a49f;
+    font-size: 12px;
+}
+
+.stage-main .stage-info h3{
+    font-size: 20px;
+}
+
+.stage-main .stage-info p{
+    font-size: 13px;
+}
+
+.artist-card::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:150px;
+
+    background:linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255,255,255,0.06) 45%,
+        rgba(255,255,255,0.12) 70%,
+        transparent 100%
+    );
+
+    z-index:0;
+}
+
+.artist-card a:hover img{
+    transform:scale(1.05);
+}
+
+.music{
+    width: 1312px;
+    margin: 120px auto 0;
+}
+
+.music .container{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    font-family: "标题", sans-serif;
+}
+
+.music .container span{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.music-layout{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 28px;
+    margin-top: 40px;
+    align-items: stretch;
+}
+
+.recent-music{
+    display: flex;
+    flex-direction: column;
+}
+
+.song-item{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.song-number{
+    width: 28px;
+    flex-shrink: 0;
+    color: #54cfb2;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.song-text{
+    min-width: 0;
+}
+
+.song-text h3{
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.song-text p{
+    margin-top: 4px;
+    color: #87a49f;
+    font-size: 13px;
+}
+
+.active-song .song-text h3{
+    color: #54cfb2;
+}
+
+.music-player{
+    padding: 28px 32px;
+    background: #10181b;
+    border-radius: 20px;
+    border: 1px solid rgba(84, 207, 178, 0.12);
+}
+
+.music-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.now-playing{
+    color: #54cfb2;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.music-top h3{
+    margin-top: 8px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: 400;
+    font-family: "再就业", sans-serif;
+}
+
+.music-top p{
+    margin-top: 5px;
+    color: #87a49f;
+    font-size: 13px;
+}
+
+.music-time{
+    color: #87a49f;
+    font-size: 13px;
+}
+
+.music-progress{
+    height: 4px;
+    margin-top: 28px;
+    background: #26302f;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor:pointer;
+}
+
+.music-progress-bar{
+    width: 0%;
+    height: 100%;
+    background: #54cfb2;
+    border-radius: 10px;
+}
+
+.music-controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 26px;
+}
+
+.music-controls button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    color: #87a49f;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.25s ease,
+                transform 0.25s ease;
+}
+
+.music-controls button:hover{
+    color: #54cfb2;
+    transform: scale(1.08);
+}
+
+.play-btn{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #54cfb2 !important;
+    color: #050c0f !important;
+    font-size: 18px !important;
+}
+
+.play-btn:hover{
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(84, 207, 178, 0.35);
+}
+
+.artists,
+.stages,
+.music{
+    position:relative;
+}
+
+
+/* STAGES 和 MUSIC 顶部分隔线 */
+.stages::before,
+.music::before{
+    content:"";
+
+    position:absolute;
+
+    top:-60px;
+    left:0;
+
+    width:100%;
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(84,207,178,0.28),
+        transparent
+    );
+}
+
+.active-song{
+    background:
+        linear-gradient(
+            90deg,
+            rgba(84,207,178,0.08),
+            transparent
+        );
+
+    border-left:2px solid #54cfb2;
+}
+

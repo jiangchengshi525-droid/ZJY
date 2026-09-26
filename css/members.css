@@ -1,0 +1,390 @@
+/* =========================
+    MEMBERS 页面
+========================= */
+
+
+/* 页面标题 */
+
+.members-hero{
+    max-width: 900px;
+    margin: 90px auto 70px;
+    padding: 0 30px;
+
+    text-align: center;
+}
+
+.members-label{
+    margin-bottom: 10px;
+
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.members-hero h1{
+    margin: 0;
+
+    font-size: 52px;
+    color: #003892;
+}
+
+.members-intro{
+    margin-top: 25px;
+
+    color: var(--text);
+    line-height: 2;
+}
+
+
+/* =========================
+   六人导航
+========================= */
+
+.member-nav{
+    display: flex;
+
+    max-width: 1100px;
+
+    margin: 0 auto 100px;
+    padding: 0 30px;
+
+    gap: 12px;
+}
+
+.member-nav-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    flex: 1;
+
+    height: 150px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    background: white;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.member-nav-item:hover{
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.08);
+}
+
+.member-number{
+    font-size: 12px;
+
+    opacity: .6;
+}
+
+.member-name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* 六色 */
+
+.member-nav-item.cs{
+    border-top: 5px solid #6c83c8;
+}
+
+.member-nav-item.allen{
+    border-top: 5px solid #e85c7a;
+}
+
+.member-nav-item.bright{
+    border-top: 5px solid #8d73c7;
+}
+
+.member-nav-item.zhangyuan{
+    border-top: 5px solid #e8a3bd;
+}
+
+.member-nav-item.land-tiger{
+    border-top: 5px solid #54cfb2;
+}
+
+.member-nav-item.wangyuexin{
+    border-top: 5px solid #f3c62f;
+}
+
+
+/* =========================
+   人物大卡
+========================= */
+
+.member-list{
+    max-width: 1100px;
+
+    margin: auto;
+    padding: 0 30px;
+}
+
+.member-card{
+    display: flex;
+    align-items: stretch;
+
+    min-height: 500px;
+
+    margin-bottom: 100px;
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.07);
+}
+
+
+/* 偶数人物左右反转 */
+
+.member-card.member-reverse{
+    flex-direction: row-reverse;
+}
+
+
+/* =========================
+   人物图片
+========================= */
+
+.member-photo{
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.member-photo img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform .5s ease;
+}
+
+.member-card:hover .member-photo img{
+    transform: scale(1.04);
+}
+
+.member-big-number{
+    position: absolute;
+
+    right: 20px;
+    bottom: -20px;
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 100px;
+    font-weight: bold;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   人物文字
+========================= */
+
+.member-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 55px;
+}
+
+.member-title p{
+    margin: 0 0 5px;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+.member-title h2{
+    margin: 0;
+
+    border: none;
+    padding: 0;
+
+    text-align: left;
+
+    font-size: 42px;
+}
+
+.member-tagline{
+    margin: 25px 0;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.member-text{
+    margin-bottom: 35px;
+}
+
+.member-text h3{
+    margin-bottom: 10px;
+
+    text-align: left;
+
+    font-size: 16px;
+}
+
+.member-text p{
+    margin: 0;
+
+    line-height: 2;
+}
+
+
+/* =========================
+   三个个人信息
+========================= */
+
+.member-favorites{
+    display: flex;
+
+    padding-top: 25px;
+
+    gap: 15px;
+
+    border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.member-favorites div{
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    gap: 7px;
+}
+
+.member-favorites span{
+    color: var(--text);
+
+    font-size: 12px;
+}
+
+.member-favorites strong{
+    font-size: 14px;
+}
+
+
+/* =========================
+   每个人的点缀色
+========================= */
+
+.member-cs{
+    border-left: 6px solid #6c83c8;
+}
+
+.member-allen{
+    border-right: 6px solid #e85c7a;
+}
+
+.member-bright{
+    border-left: 6px solid #8d73c7;
+}
+
+.member-zhangyuan{
+    border-right: 6px solid #e8a3bd;
+}
+
+.member-land-tiger{
+    border-left: 6px solid #54cfb2;
+}
+
+.member-wangyuexin{
+    border-right: 6px solid #f3c62f;
+}
+
+
+/* =========================
+   手机端
+========================= */
+
+@media (max-width: 768px){
+
+    .members-hero{
+        margin-top: 60px;
+    }
+
+    .members-hero h1{
+        font-size: 38px;
+    }
+
+
+    /* 六色导航变成两列 */
+
+    .member-nav{
+        flex-wrap: wrap;
+
+        margin-bottom: 60px;
+    }
+
+    .member-nav-item{
+        flex: none;
+
+        width: calc(50% - 6px);
+
+        height: 110px;
+    }
+
+
+    /* 人物卡片变上下布局 */
+
+    .member-card,
+    .member-card.member-reverse{
+        flex-direction: column;
+
+        margin-bottom: 60px;
+    }
+
+    .member-photo{
+        height: 420px;
+
+        flex: none;
+    }
+
+    .member-content{
+        padding: 30px 25px;
+    }
+
+    .member-title h2{
+        font-size: 34px;
+    }
+
+    .member-favorites{
+        flex-direction: column;
+    }
+
+}
