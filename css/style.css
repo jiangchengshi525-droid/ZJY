@@ -200,7 +200,10 @@ body{
     letter-spacing: 3px;
     font-family: "酒菜", sans-serif;
 }
-
+@font-face {
+    font-family: "名次";
+    src: url("../fonts/BRWakaisho-Medium.ttf");
+}
 @font-face {
     font-family: "再就业";
     src: url("../fonts/字制区喜脉喜欢体.ttf");
