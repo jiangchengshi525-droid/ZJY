@@ -1,0 +1,657 @@
+/* =========================
+   STAGES 页面
+========================= */
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+/* =========================
+   页面标题
+========================= */
+
+.stages-hero{
+    max-width: 900px;
+
+    margin: 70px auto 100px;
+    padding: 0 30px;
+
+    text-align: center;
+}
+
+
+.stages-label{
+    color: #54cfb2;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 6px;
+}
+
+
+.stages-hero h1{
+    margin: 12px 0 0;
+
+    color: #ffffff;
+
+    font-family: "标题", sans-serif;
+    font-size: 52px;
+
+    letter-spacing: 4px;
+}
+
+
+.stages-intro{
+    margin-top: 25px;
+
+    color: #8fa3a3;
+
+    font-size: 15px;
+    line-height: 2;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* =========================
+   每个人的舞台区域
+========================= */
+
+.stage-ranking{
+    max-width: 1100px;
+
+    margin: 0 auto 150px;
+    padding: 0 30px;
+}
+
+
+
+/* =========================
+   人物标题
+========================= */
+
+.stage-person{
+    margin-bottom: 55px;
+
+    text-align: center;
+}
+
+
+.person-number{
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #71817e;
+
+    font-family: "名次", serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+
+.stage-person h2{
+    margin: 0;
+
+    font-family: "标题", sans-serif;
+    font-size: 42px;
+
+    letter-spacing: 3px;
+}
+
+
+.stage-person p{
+    margin: 8px 0 0;
+
+    color: #71817e;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+}
+
+
+
+/* =========================
+   领奖台整体布局
+========================= */
+
+.podium{
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 24px;
+
+    /* 给悬空封面预留上方空间 */
+    min-height: 360px;
+}
+
+
+
+/* =========================
+   舞台卡
+========================= */
+
+.stage-card{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 30%;
+
+    padding: 120px 18px 18px;
+
+    overflow: visible;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8f6f0 0%,
+            #eeebe3 100%
+        );
+
+    border: 1px solid rgba(113,129,126,.30);
+
+    border-radius: 18px 18px 6px 6px;
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+
+
+/* =========================
+   冠亚季军高度
+========================= */
+
+/* 亚军 */
+.stage-card.second{
+    height: 215px;
+}
+
+
+/* 冠军 */
+.stage-card.first{
+    height: 245px;
+}
+
+
+/* 季军 */
+.stage-card.third{
+    height: 190px;
+}
+
+
+
+/* =========================
+   舞台封面超链接
+========================= */
+
+.stage-cover{
+    position: absolute;
+
+    top: -45px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: block;
+
+    width: 88%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #f7f4ed;
+
+    border: 2px solid rgba(255,255,255,.78);
+
+    border-radius: 16px;
+
+    padding: 6px;
+
+    cursor: pointer;
+
+    z-index: 3;
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,.34),
+        0 0 0 1px rgba(52,71,68,.18);
+}
+
+
+/* 第一名封面最大、悬得最高 */
+.stage-card.first .stage-cover{
+    width: 92%;
+    top: -105px;
+}
+
+
+/* 第二名 */
+.stage-card.second .stage-cover{
+    width: 88%;
+    top: -90px;
+}
+
+
+/* 第三名 */
+.stage-card.third .stage-cover{
+    width: 84%;
+    top: -78px;
+}
+
+
+.stage-cover img{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    transition: transform .3s ease;
+}
+
+
+/* 只让图片轻微放大 */
+.stage-cover:hover img{
+    transform: scale(1.04);
+}
+
+
+
+/* =========================
+   排名大数字
+========================= */
+
+.rank-number{
+    position: absolute;
+
+    right: 24px;
+
+    color: rgba(255,255,255,.86);
+
+    font-family: "名次", serif;
+    font-style: italic;
+    font-weight: 700;
+
+    line-height: 1;
+    letter-spacing: -6px;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,.38);
+
+    z-index: 4;
+
+    /*
+       数字只负责视觉，
+       不要挡住下面封面的点击
+    */
+    pointer-events: none;
+}
+
+
+.stage-card.first .rank-number{
+    top: -92px;
+    font-size: 90px;
+}
+
+.stage-card.second .rank-number{
+    top: -78px;
+    font-size: 80px;
+}
+
+.stage-card.third .rank-number{
+    top: -66px;
+    font-size: 72px;
+}
+
+
+
+/* =========================
+   舞台信息
+========================= */
+
+.stage-info{
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 0;
+    padding-top: 12px;
+
+    border-top: 1px solid rgba(52,71,68,.12);
+
+    z-index: 2;
+}
+
+
+.rank-label{
+    margin: 0 0 7px;
+
+    color: #71817e;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.stage-info h3{
+    margin: 0 0 8px;
+
+    color: #344744;
+
+    font-family: "标题", sans-serif;
+    font-size: 24px;
+}
+
+
+.stage-info > span{
+    display: block;
+
+    color: #71817e;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+
+/* =========================
+   六人应援色
+========================= */
+
+
+/* ---------- 陈楚生 ---------- */
+
+.stage-ranking.ccs .stage-person h2{
+    color: #e30719;
+}
+
+.stage-ranking.ccs .stage-card.first{
+    border-top: 6px solid #e30719;
+}
+
+
+
+/* ---------- 苏醒 ---------- */
+
+.stage-ranking.Allen .stage-person h2{
+    color: #e94d96;
+}
+
+.stage-ranking.Allen .stage-card.first{
+    border-top: 6px solid #e94d96;
+}
+
+
+
+/* ---------- 王栎鑫 ---------- */
+
+.stage-ranking.KA .stage-person h2{
+    color: #f3c62f;
+}
+
+.stage-ranking.KA .stage-card.first{
+    border-top: 6px solid #f3c62f;
+}
+
+
+
+/* ---------- 张远 ---------- */
+
+.stage-ranking.Bird .stage-person h2{
+    color: #ffed00;
+}
+
+.stage-ranking.Bird .stage-card.first{
+    border-top: 6px solid #ffed00;
+}
+
+
+
+/* ---------- 王铮亮 ---------- */
+
+.stage-ranking.Reno .stage-person h2{
+    color: #003892;
+}
+
+.stage-ranking.Reno .stage-card.first{
+    border-top: 6px solid #003892;
+}
+
+
+
+/* ---------- 陆虎 ---------- */
+
+.stage-ranking.LT .stage-person h2{
+    color: #00c73e;
+}
+
+.stage-ranking.LT .stage-card.first{
+    border-top: 6px solid #00c73e;
+}
+
+
+
+/* =========================
+   人物区域之间分隔
+========================= */
+
+.stage-ranking{
+    position: relative;
+}
+
+
+.stage-ranking:not(:last-of-type)::after{
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+    bottom: -75px;
+
+    width: 80%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(84,207,178,.20),
+            transparent
+        );
+}
+
+
+
+/* =========================
+   Footer
+========================= */
+
+.site-footer{
+    padding: 40px 20px 50px;
+
+    text-align: center;
+}
+
+
+.site-footer p{
+    color: #71817e;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+
+/* =========================
+   手机端
+========================= */
+
+@media (max-width: 768px){
+
+
+    /* 页面标题 */
+
+    .stages-hero{
+        margin: 55px auto 75px;
+    }
+
+
+    .stages-hero h1{
+        font-size: 38px;
+    }
+
+
+
+    /* 人物区域 */
+
+    .stage-ranking{
+        margin-bottom: 100px;
+        padding: 0 15px;
+    }
+
+
+    .stage-person{
+        margin-bottom: 35px;
+    }
+
+
+    .stage-person h2{
+        font-size: 34px;
+    }
+
+
+
+    /* 领奖台 */
+
+    .podium{
+        gap: 8px;
+
+        min-height: 225px;
+    }
+
+
+
+    /* 卡片 */
+
+    .stage-card{
+        width: 33.333%;
+
+        padding: 52px 8px 10px;
+
+        border-radius: 12px 12px 4px 4px;
+    }
+
+
+    .stage-card.first{
+        height: 170px;
+    }
+
+
+    .stage-card.second{
+        height: 150px;
+    }
+
+
+    .stage-card.third{
+        height: 135px;
+    }
+
+
+
+    /* 封面 */
+
+    .stage-cover{
+        border-radius: 8px;
+    }
+
+    .stage-card.first .stage-cover{
+        width: 96%;
+        top: -46px;
+    }
+
+    .stage-card.second .stage-cover{
+        width: 92%;
+        top: -39px;
+    }
+
+    .stage-card.third .stage-cover{
+        width: 90%;
+        top: -34px;
+    }
+
+
+
+    /* 大数字 */
+
+    .rank-number{
+        right: 10px;
+
+        letter-spacing: -3px;
+    }
+
+    .stage-card.first .rank-number{
+        top: -39px;
+        font-size: 48px;
+    }
+
+    .stage-card.second .rank-number{
+        top: -32px;
+        font-size: 43px;
+    }
+
+    .stage-card.third .rank-number{
+        top: -27px;
+        font-size: 39px;
+    }
+
+
+
+    /* 信息 */
+
+    .stage-info{
+        padding-top: 8px;
+    }
+
+
+    .rank-label{
+        font-size: 9px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .stage-info h3{
+        font-size: 16px;
+
+        line-height: 1.4;
+    }
+
+
+    .stage-info > span{
+        font-size: 10px;
+
+        line-height: 1.5;
+    }
+
+
+}
