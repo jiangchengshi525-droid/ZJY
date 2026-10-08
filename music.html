@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>音乐作品 | 再就业男团</title>
+
+    <!-- 网站公共样式 -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- 手机端公共样式 -->
+    <link rel="stylesheet"
+          href="./css/mobile.css"
+          media="(max-width: 768px)">
+
+    <!-- 音乐页面专属样式 -->
+    <link rel="stylesheet" href="./css/music-page.css">
+</head>
+
+<body class="music-page">
+
+    <!-- =========================
+         顶部导航
+    ========================= -->
+
+    <header class="site-header">
+        <nav class="navbar wrapper">
+
+            <a href="./index.html" class="logo">
+                <h1>再就业男团</h1>
+            </a>
+
+            <ul class="nav-list">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./members.html">艺人</a></li>
+                <li><a href="./stages.html">舞台</a></li>
+                <li>
+                    <a href="./music.html" class="active">
+                        音乐作品
+                    </a>
+                </li>
+                <li><a href="./about.html">关于</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main class="music-main">
+
+        <!-- =========================
+             页面介绍
+        ========================= -->
+
+        <section class="music-hero">
+
+            <p class="music-eyebrow">
+                THE MUSIC ROOM
+            </p>
+
+            <h1>我们的音乐宇宙</h1>
+
+            <p class="music-intro">
+                把喜欢的声音收藏起来，<br>
+                让每一首歌都有自己的位置。
+            </p>
+
+            <div class="music-hero-bottom">
+
+                <span class="music-total">
+                    <strong id="totalSongs">370</strong>
+                    首音乐收藏
+                </span>
+
+                <a
+                    href="https://y.qq.com/n/ryqq_v2/playlist/9034783748"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="playlist-link"
+                >
+                    查看我的 QQ 音乐歌单 ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             三栏主体布局
+        ========================= -->
+
+        <div class="music-layout">
+
+
+            <!-- =====================
+                 左侧：歌手分类
+            ====================== -->
+
+            <aside class="music-sidebar">
+
+                <div class="sidebar-heading">
+                    <span class="sidebar-en">LIBRARY</span>
+                    <h2>音乐分类</h2>
+                </div>
+
+                <!-- 留给 JS 绑定分类事件 -->
+                <div class="music-categories" id="musicFilters">
+
+                    <button
+                        class="music-filter is-active"
+                        data-category="all"
+                        type="button"
+                        aria-pressed="true"
+                    >
+                        <span class="filter-icon">♫</span>
+                        <span>全部歌曲</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="ccs"
+                        style="--member-color:#e30719"
+                        type="button"
+                    >
+                        <span class="filter-dot"></span>
+                        <span>陈楚生</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="Allen"
+                        style="--member-color:#e94d96"
+                        type="button"
+                    >
+                        <span class="filter-dot"></span>
+                        <span>苏醒</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="KA"
+                        style="--member-color:#f3c62f"
+                        type="button"
+                    >
+                        <span class="filter-dot"></span>
+                        <span>王栎鑫</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="Bird"
+                        style="--member-color:#ffed00"
+                        type="button"
+                    >
+                        <span class="filter-dot"></span>
+                        <span>张远</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="Reno"
+                        style="--member-color:#003892"
+                        type="button"
+                    >
+                        <span class="filter-dot"></span>
+                        <span>王铮亮</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="LT"
+                        style="--member-color:#00c73e"
+                        type="button"
+                    >
+                        <span class="filter-dot"></span>
+                        <span>陆虎</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="collab"
+                        type="button"
+                    >
+                        <span class="filter-icon">✦</span>
+                        <span>六人合作</span>
+                    </button>
+
+                    <button
+                        class="music-filter"
+                        data-category="other"
+                        type="button"
+                    >
+                        <span class="filter-icon">♪</span>
+                        <span>其他收藏</span>
+                    </button>
+
+                </div>
+
+                <div class="sidebar-footer">
+                    <p>MY PRIVATE PLAYLIST</p>
+                    <span>那些反复播放的声音。</span>
+                </div>
+
+            </aside>
+
+
+            <!-- =====================
+                 中间：歌曲列表
+            ====================== -->
+
+            <section class="music-library">
+
+                <!-- 列表标题 -->
+                <div class="library-header">
+
+                    <div>
+                        <p class="library-label">
+                            SONG COLLECTION
+                        </p>
+
+                        <h2 id="currentCategory">
+                            全部歌曲
+                        </h2>
+
+                        <p class="library-count" id="resultCount">
+                            共收藏 370 首歌曲
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- 搜索和排序 -->
+                <div class="library-toolbar">
+
+                    <label class="music-search">
+
+                        <span class="search-symbol"
+                              aria-hidden="true"></span>
+
+                        <input
+                            type="search"
+                            id="musicSearch"
+                            placeholder="搜索歌曲、歌手或专辑"
+                            autocomplete="off"
+                        >
+
+                    </label>
+
+                    <select id="musicSort"
+                            class="music-sort"
+                            aria-label="歌曲排序">
+
+                        <option value="default">
+                            歌单顺序
+                        </option>
+
+                        <option value="name">
+                            歌名排序
+                        </option>
+
+                        <option value="artist">
+                            歌手排序
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- 列表表头 -->
+                <div class="song-table-heading">
+                    <span>歌曲</span>
+                    <span>专辑</span>
+                </div>
+
+
+                <!-- =====================
+                     歌曲列表
+
+                     现在放六条预览数据。
+                     以后 JS 自动生成全部歌曲。
+                ====================== -->
+
+                <ul class="song-list" id="songList">
+
+                    <!-- 01 陈楚生 -->
+                    <li class="song-item is-selected">
+
+                        <button class="song-select"
+                                type="button"
+                                data-songmid="002WvNbI0Ox312">
+
+                            <span class="song-number">01</span>
+
+                            <img
+                                class="song-cover"
+                                src="https://y.qq.com/music/photo_new/T002R500x500M000003CDhrC3KRAUs.jpg"
+                                alt="趋光封面"
+                            >
+
+                            <span class="song-details">
+                                <strong>趋光号</strong>
+                                <small>陈楚生</small>
+                            </span>
+
+                            <span class="song-album">
+                                趋光
+                            </span>
+
+                        </button>
+
+                        <a
+                            class="song-external"
+                            href="https://y.qq.com/n/ryqq/songDetail/002WvNbI0Ox312"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="在QQ音乐打开趋光号"
+                        >
+                            ↗
+                        </a>
+
+                    </li>
+
+
+                    <!-- 02 苏醒 -->
+                    <li class="song-item">
+
+                        <button class="song-select"
+                                type="button"
+                                data-songmid="000JycZ82F8eI3">
+
+                            <span class="song-number">02</span>
+
+                            <img
+                                class="song-cover"
+                                src="https://y.qq.com/music/photo_new/T002R500x500M0000024QyvN2VDr97.jpg"
+                                alt="大小姐封面"
+                            >
+
+                            <span class="song-details">
+                                <strong>大小姐</strong>
+                                <small>苏醒AllenSu</small>
+                            </span>
+
+                            <span class="song-album">大小姐</span>
+
+                        </button>
+
+                        <a
+                            class="song-external"
+                            href="https://y.qq.com/n/ryqq/songDetail/000JycZ82F8eI3"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="在QQ音乐打开大小姐"
+                        >
+                            ↗
+                        </a>
+
+                    </li>
+
+
+                    <!-- 03 王栎鑫 -->
+                    <li class="song-item">
+
+                        <button class="song-select"
+                                type="button"
+                                data-songmid="004PWuOH13aXuT">
+
+                            <span class="song-number">03</span>
+
+                            <img
+                                class="song-cover"
+                                src="https://y.qq.com/music/photo_new/T002R500x500M000001AMgec3Fch1g.jpg"
+                                alt="Like That封面"
+                            >
+
+                            <span class="song-details">
+                                <strong>Like That</strong>
+                                <small>王栎鑫</small>
+                            </span>
+
+                            <span class="song-album">
+                                Like That
+                            </span>
+
+                        </button>
+
+                        <a
+                            class="song-external"
+                            href="https://y.qq.com/n/ryqq/songDetail/004PWuOH13aXuT"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="在QQ音乐打开Like That"
+                        >
+                            ↗
+                        </a>
+
+                    </li>
+
+
+                    <!-- 04 张远 -->
+                    <li class="song-item">
+
+                        <button class="song-select"
+                                type="button"
+                                data-songmid="0033hV2d00YfsP">
+
+                            <span class="song-number">04</span>
+
+                            <img
+                                class="song-cover"
+                                src="https://y.qq.com/music/photo_new/T002R500x500M0000008r3sa18hycz.jpg"
+                                alt="Bird Can Fly封面"
+                            >
+
+                            <span class="song-details">
+                                <strong>Bird Can Fly</strong>
+                                <small>张远</small>
+                            </span>
+
+                            <span class="song-album">
+                                Bird Can Fly
+                            </span>
+
+                        </button>
+
+                        <a
+                            class="song-external"
+                            href="https://y.qq.com/n/ryqq/songDetail/0033hV2d00YfsP"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="在QQ音乐打开Bird Can Fly"
+                        >
+                            ↗
+                        </a>
+
+                    </li>
+
+
+                    <!-- 05 王铮亮 -->
+                    <li class="song-item">
+
+                        <button class="song-select"
+                                type="button"
+                                data-songmid="000I7s312u5O9k">
+
+                            <span class="song-number">05</span>
+
+                            <img
+                                class="song-cover"
+                                src="https://y.qq.com/music/photo_new/T002R500x500M000003ZuQ5z05yCAP.jpg"
+                                alt="我来书写我的名封面"
+                            >
+
+                            <span class="song-details">
+                                <strong>我来书写我的名</strong>
+                                <small>王铮亮</small>
+                            </span>
+
+                            <span class="song-album">
+                                兰香如故 影视剧原声带
+                            </span>
+
+                        </button>
+
+                        <a
+                            class="song-external"
+                            href="https://y.qq.com/n/ryqq/songDetail/000I7s312u5O9k"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="在QQ音乐打开我来书写我的名"
+                        >
+                            ↗
+                        </a>
+
+                    </li>
+
+
+                    <!-- 06 陆虎 -->
+                    <li class="song-item">
+
+                        <button class="song-select"
+                                type="button"
+                                data-songmid="0046PjTM2pYXTD">
+
+                            <span class="song-number">06</span>
+
+                            <img
+                                class="song-cover"
+                                src="https://y.qq.com/music/photo_new/T002R500x500M000001SamUW00mmo4.jpg"
+                                alt="香格里拉封面"
+                            >
+
+                            <span class="song-details">
+                                <strong>香格里拉</strong>
+                                <small>陆虎</small>
+                            </span>
+
+                            <span class="song-album">
+                                香格里拉
+                            </span>
+
+                        </button>
+
+                        <a
+                            class="song-external"
+                            href="https://y.qq.com/n/ryqq/songDetail/0046PjTM2pYXTD"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="在QQ音乐打开香格里拉"
+                        >
+                            ↗
+                        </a>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- 后续 JS 控制加载更多 -->
+                <button class="music-load-more"
+                        id="loadMoreSongs"
+                        type="button">
+
+                    加载更多歌曲
+                    <span>↓</span>
+
+                </button>
+
+            </section>
+
+
+            <!-- =====================
+                 右侧：黑胶唱片展示
+            ====================== -->
+
+            <aside class="music-player">
+
+                <div class="player-heading">
+
+                    <span>NOW EXPLORING</span>
+
+                    <span class="player-status">
+                        <span class="status-dot"></span>
+                        MUSIC ARCHIVE
+                    </span>
+
+                </div>
+
+
+                <!-- 黑胶展示区域 -->
+                <div class="vinyl-stage">
+
+                    <div class="vinyl-disc">
+
+                        <!-- 黑胶中心专辑封面 -->
+                        <div class="vinyl-label">
+
+                            <img
+                                id="vinylCover"
+                                src="https://y.qq.com/music/photo_new/T002R500x500M000003CDhrC3KRAUs.jpg"
+                                alt="当前选中歌曲的专辑封面"
+                            >
+
+                        </div>
+
+                        <div class="vinyl-hole"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 当前歌曲 -->
+                <div class="player-song-info">
+
+                    <p class="player-caption">
+                        SELECTED TRACK
+                    </p>
+
+                    <h2 id="playerTitle">
+                        趋光号
+                    </h2>
+
+                    <p id="playerArtist">
+                        陈楚生
+                    </p>
+
+                    <p class="player-album" id="playerAlbum">
+                        专辑：趋光
+                    </p>
+
+                </div>
+
+
+                <!-- QQ音乐跳转 -->
+                <a
+                    class="music-listen"
+                    id="qqMusicLink"
+                    href="https://y.qq.com/n/ryqq/songDetail/002WvNbI0Ox312"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>在 QQ 音乐收听</span>
+                    <span>↗</span>
+                </a>
+
+
+                <div class="player-footnote">
+                    <span>NO. 001 / MUSIC COLLECTION</span>
+                    <span>♫</span>
+                </div>
+
+            </aside>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         页面底部
+    ========================= -->
+
+    <footer class="site-footer">
+        <p>© 2026 梨花 · 我的音乐宇宙</p>
+    </footer>
+    <!-- 音乐页专属 JS -->
+    <script src="./js/music-page.js"></script>
+</body>
+
+</html>
